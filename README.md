@@ -1,100 +1,86 @@
-<div align="center">
+# 📚 Proyek UAS: Sistem Informasi Perpustakaan
 
-📚 Proyek UAS: Sistem Informasi Perpustakaan
-uas_topik_khusus_perpustakaan
+Selamat datang di repository Proyek Ujian Akhir Semester (UAS) untuk mata kuliah Topik Khusus. Proyek ini adalah aplikasi web full-stack untuk manajemen perpustakaan, dibangun menggunakan arsitektur layanan terpisah dan dideploy dengan Docker.
 
-</div>
+## 🚀 Fitur Utama
 
-Ini adalah repository untuk Proyek Ujian Akhir Semester (UAS) mata kuliah Topik Khusus. Proyek ini adalah aplikasi web full-stack untuk manajemen perpustakaan yang dibangun menggunakan arsitektur layanan terpisah dan dideploy menggunakan Docker.
+| Fitur                 | Deskripsi                                                                 |
+|-----------------------|---------------------------------------------------------------------------|
+| 👤 Manajemen Pengguna | Registrasi dan login untuk pengguna dan admin dengan sistem otentikasi.   |
+| 🛡️ Manajemen Role    | Sistem peran untuk membedakan hak akses antara admin dan pengguna.         |
+| 📖 Katalog Buku (CRUD)| Admin dapat menambah, melihat, mengedit, dan menghapus data buku.          |
+| 🔍 Pencarian Buku     | Pengguna dapat mencari buku berdasarkan judul atau kategori.               |
+| 📥 Sistem Peminjaman  | Pengguna dapat melakukan peminjaman buku dan melihat statusnya.            |
+| 📤 Sistem Pengembalian| Admin dapat mengelola dan memvalidasi pengembalian buku.                   |
+| 📜 Riwayat Transaksi  | Pengguna dan admin dapat melihat riwayat peminjaman yang pernah dilakukan. |
 
-🛠️ Tumpukan Teknologi (Tech Stack)
-<p align="center">
-<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js">
-<img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js">
-<img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=61DAFB" alt="Vue.js">
-<img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
-<img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
-</p>
+## 🛠️ Tech Stack
 
-🚀 Fitur Utama
-Fitur
+- **Backend**: Node.js + Express.js
+- **Frontend (User)**: Vue.js
+- **Frontend (Admin)**: Vue.js
+- **Containerization**: Docker
+- **Orchestration**: Docker Compose
 
-Deskripsi
+## 📁 Struktur Proyek
 
-👤 Manajemen Pengguna
+Proyek ini menggunakan struktur monorepo dengan tiga direktori utama:
 
-Registrasi dan Login untuk user dan admin dengan sistem otentikasi.
+- **./perpustakaan**: Kode sumber untuk layanan Backend (Node.js + Express.js).
+- **./perpustakaan-uas**: Kode sumber untuk layanan Frontend User (Vue.js).
+- **./FrontEndAdminTK**: Kode sumber untuk layanan Frontend Admin (Vue.js).
 
-🛡️ Manajemen Role
+Konfigurasi untuk menjalankan semua layanan secara bersamaan didefinisikan dalam file `docker-compose.yml`.
 
-Sistem peran untuk membedakan hak akses antara admin dan user.
+## ⚙️ Cara Menjalankan Proyek Secara Lokal
 
-📖 Katalog Buku (CRUD)
+### Prasyarat
 
-Admin dapat menambah, melihat, mengedit, dan menghapus data buku.
+- Pastikan Anda telah menginstal **Docker Desktop** di komputer Anda.
+- Pastikan port `5173`, `5174`, dan port lain yang diperlukan tidak sedang digunakan.
 
-🔍 Pencarian Buku
+### Langkah-langkah
 
-Pengguna dapat mencari buku berdasarkan judul atau kategori.
+1. **Clone Repository**
 
-📥 Sistem Peminjaman
+   ```bash
+   git clone https://github.com/Taufiqurrahman10/uas_topik_khusus_perpustakaan.git
+   cd uas_topik_khusus_perpustakaan
+   ```
 
-Pengguna dapat melakukan peminjaman buku dan melihat statusnya.
+2. **Jalankan dengan Docker Compose**
 
-📤 Sistem Pengembalian
+   Buka terminal di folder utama proyek dan jalankan:
 
-Admin dapat mengelola dan memvalidasi pengembalian buku.
+   ```bash
+   docker-compose up --build
+   ```
 
-📜 Riwayat Transaksi
+   Perintah ini akan membangun image untuk setiap layanan dan menjalankan container. Proses ini mungkin memakan waktu beberapa menit saat pertama kali dijalankan.
 
-Pengguna dan admin dapat melihat riwayat peminjaman yang pernah dilakukan.
+3. **Akses Aplikasi**
 
-📁 Struktur Proyek
-Proyek ini diorganisir dalam struktur monorepo dengan tiga direktori utama:
+   Setelah semua layanan berjalan, buka browser Anda dan akses:
 
-./perpustakaan: Berisi kode sumber untuk layanan Backend (Node.js).
+   - **Frontend User**: [http://localhost:5174](http://localhost:5174)
+   - **Frontend Admin**: [http://localhost:5173](http://localhost:5173)
 
-./perpustakaan-uas: Berisi kode sumber untuk layanan Frontend User (Vue.js).
+## 👥 Anggota Kelompok
 
-./FrontEndAdminTK: Berisi kode sumber untuk layanan Frontend Admin (Vue.js).
+| Nama                         | NIM         |
+|------------------------------|-------------|
+| Cindy Steffani               | 2211081006  |
+| Deni Ramadhan                | 2211083010  |
+| Dzaky Rahmat Nurwahid        | 2211083024  |
+| Geraldo Afrinandi Persada    | 2211083026  |
+| Taufiqurrahman               | 2211081029  |
 
-💡 Konfigurasi untuk menjalankan semua layanan ini secara bersamaan didefinisikan dalam file docker-compose.yml.
+## 📝 Catatan
 
-⚙️ Cara Menjalankan Proyek Secara Lokal
-Pastikan Anda sudah menginstal Docker Desktop di komputer Anda.
+- Pastikan koneksi internet stabil saat menjalankan `docker-compose up --build` untuk mengunduh dependensi.
+- Jika terjadi error terkait port, pastikan tidak ada aplikasi lain yang menggunakan port yang sama.
+- Untuk menghentikan aplikasi, tekan `Ctrl+C` di terminal dan jalankan `docker-compose down` untuk membersihkan container.
 
-1. Clone Repository Ini
-git clone https://github.com/Taufiqurrahman10/uas_topik_khusus_perpustakaan.git
-cd uas_topik_khusus_perpustakaan
+## 📜 Lisensi
 
-2. Buat File .env
-Buat sebuah file baru bernama .env di dalam folder utama proyek. Salin konten di bawah ini ke dalam file tersebut.
-
-# Konfigurasi untuk database
-DB_PASS=kelompok1
-DB_NAME=db_perpustakaan
-
-3. Jalankan dengan Docker Compose
-Buka terminal di folder utama proyek dan jalankan perintah berikut:
-
-docker-compose up --build
-
-Perintah ini akan membangun image untuk setiap layanan dan menjalankan semua container. Proses ini mungkin memakan waktu beberapa menit saat pertama kali dijalankan.
-
-4. Akses Aplikasi
-Setelah semua layanan berjalan, buka browser Anda dan akses:
-
-Frontend User: http://localhost:5174
-
-Frontend Admin: http://localhost:5173
-
-# perpustakaan
-
-## Kelompok
-| Nama     | Nim                          |
-|----------------|-------------------------------|
-| Cindy Steffani    | 2211081006              |
-| Deni Ramadhan    | 2211083010             |
-| Dzaky Rahmat Nurwahid    | 2211083024              |
-| Geraldo Afrinandi Persada    | 2211083026              |
-| Taufiqurrahman    | 2211081029   |
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
