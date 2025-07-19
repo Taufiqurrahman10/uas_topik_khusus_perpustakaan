@@ -1,0 +1,52 @@
+# Mendefinisikan semua service yang dibutuhkan aplikasi
+services:
+  # Service untuk Database (MySQL) dengan Healthcheck
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+    volumes:
+      # Volume ini penting agar data database tidak hilang
+      - db-data:/var/lib/mysql
+    # BAGIAN INI MEMERIKSA APAKAH DATABASE SUDAH SIAP SECARA BERKALA
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Service untuk Backend (Node.js)
+  backend:
+    build: D:/Topik Khusus/perpustakaan
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: ${DB_PASS}
+      DB_NAME: ${DB_NAME}
+    # BAGIAN INI MENUNGGU SAMPAI DATABASE BENAR-BENAR "HEALTHY"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # Service untuk Frontend User (Vue.js)
+  frontend-user:
+    build: D:/Topik Khusus/perpustakaan-uas
+    ports:
+      - "5174:80"
+    depends_on:
+      - backend
+
+  # Service untuk Frontend Admin (Vue.js)
+  frontend-admin:
+    build: D:/Topik Khusus/FrontEndAdminTK
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+# Mendefinisikan volume untuk database
+volumes:
+  db-data:

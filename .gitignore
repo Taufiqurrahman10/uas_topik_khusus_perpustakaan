@@ -1,0 +1,31 @@
+# Mengabaikan folder yang dibuat oleh Docker Compose untuk data database
+/db-data/
+
+# File Env  (root)
+/.env
+
+# --- Backend (perpustakaan) ---
+/perpustakaan/node_modules
+
+/perpustakaan/.env
+
+# --- Frontend User (perpustakaan-uas) ---
+/perpustakaan-uas/node_modules
+
+/perpustakaan-uas/dist
+
+/perpustakaan-uas/.env
+/perpustakaan-uas/.env.*
+
+# --- Frontend Admin (FrontEndAdminTK) ---
+/FrontEndAdminTK/node_modules
+
+/FrontEndAdminTK/dist
+
+/FrontEndAdminTK/.env
+/FrontEndAdminTK/.env.*
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
